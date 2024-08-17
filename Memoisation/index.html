@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memosation</title>
+</head>
+<body>
+    <h1 style="display: flex ; justify-content: center;">Memoisation `${calc()}`</h1>
+    <script>
+let calc = (n)=>{
+    let sum =0;
+for(let i=0 ;i<=n ;i++){
+
+    sum = sum +i;
+}
+return sum;
+}
+const memoize =(fun)=>{
+    let chace={}
+    return function(...args){
+let n=args[0];
+if(n in chace){
+    return chace[n];
+}else{
+    let result =fun(n)
+    chace[n]=result;
+    return result;
+}
+    }
+}
+console.time()
+const efficent =memoize(calc)
+co
+console.log(efficent(6))
+console.timeEnd()
+console.time()
+console.log(calc(6))
+console.timeEnd()
+    </script>
+</body>
+</html>

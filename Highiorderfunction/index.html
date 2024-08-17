@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highiorder function</title>
+</head>
+<body>
+    <h1 style="display: flex ;justify-content: center; align-items: center;">Highi Order Function</h1>
+    <script>
+      
+    //   here calculate function is higher order function 
+    // and diameter , curcum frence , area are callback function
+        let radious=[3 ,4 ,6 ,7] ;
+
+        let diameater =function (radious){
+            return 2*radious;
+        }
+        const circumfrence =function(radious){
+
+            return 2*Math.PI*radious;
+        }
+    
+    let calculate =function(radious ,logic){
+let output =[];
+for(let i =0 ; i <radious.length ; i++){
+    output.push(logic(radious[i]))
+}
+return output;
+    };
+const area =(radious)=>{
+    return Math.PI*radious*radious;
+}
+   
+    console.log(calculate(radious , diameater));
+    console.log(calculate(radious , circumfrence));
+    console.log(calculate(radious , area));
+</script>
+</body>
+</html>
